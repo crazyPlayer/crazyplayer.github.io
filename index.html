@@ -2,118 +2,237 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>intersoph</title>
-<link rel="shortcut icon" href="../img/favicon.ico">
+<title>我的简历</title>
+<link rel="stylesheet" type="text/css" href="css/jquery.fullPage.css" />
 <style>
-/*reset*/
-*{padding:0;margin:0;list-style:none;border:none;}
-html,body{width:100%;height:100%;font-family:"微软雅黑";}
-/*leftside*/
-#leftside{width:300px;height:100%;position:fixed;top:0;bottom:0;left:0;background:rgba(0, 171, 198,0.9);}
-#logo{position:absolute;top:14%;left:30px;}
-/*nav*/
-#nav{position:absolute;left:90px;top:38%;}
-#nav li{height:36px;width:106px;position:relative;}
-#nav li a{display:block;height:36px;width:106px;line-height:36px;color:#FFF;text-decoration:none;}
-#nav li a:after{content:"";position:absolute;left:0;bottom:3px;height:3px;width:0px;background:#FFF; -webkit-transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55); transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55); }
-#nav li a:hover:after{content:"";position:absolute;left:0;bottom:3px;height:3px;width:25px;background:#FFF;}
-#nav li a.active{font-weight:bold;}
-#nav li a.active:after{content:"";position:absolute;left:0;bottom:3px;height:3px;width:25px;background:#FFF;}
-#leftside p.wc{font-size:14px;position:absolute;bottom:13%;left:100px;color:#fff;width:90px;background:url(../img/wechat.png) no-repeat center right;cursor:pointer;}
-#leftside p.cr{font-size:14px;position:absolute;bottom:10%;left:50px;color:#fff;text-align:center;cursor:pointer;}
-#leftside span.ewm{width:68px;height:68px;position:absolute;left:110px;bottom:17%;background:url(../img/ewm.png) no-repeat center center;opacity:0;}
-/*topbg*/
-#topbg{width:100%;height:435px;background:url(../img/topbg.png) repeat-x top left;background-attachment:fixed;}
-/*rightside*/
-#rightside{float:right;opacity:0;}
-#intro{width:666px;margin:0 auto;}
-#intro h1{font-size:48px;color:#272424;margin-top:64px;}
-#intro h1 span{color:rgba(0, 171, 198,1);font-weight:bold;}
-#intro p{font-size:16px;}
-#intro p.p1{color:#000;margin-top:20px;line-height:30px;}
-#intro p.p1 span{font-size:18px;color:rgba(0, 171, 198,1);font-weight:bold;}
-#intro p.p2{line-height:30px;color:#000;}
-#intro p.p3{font-size:18px;color:#555555;font-weight:bold;margin-top:28px;}
-#intro p.p4{margin-top:10px;}
-#intro p.p6{margin-bottom:55px;}
-#intro p.p4,#intro p.p5,#intro p.p6{line-height:30px;}
-#intro p.p4 span{color:rgba(0, 171, 198,1);font-weight:bold;}
-#intro p.p5 span{color:rgba(0, 171, 198,1);font-weight:bold;line-height:30px;}
-#intro p.p6 span{color:rgba(0, 171, 198,1);font-weight:bold;line-height:30px;}
+*{padding:0;margin:0;list-style:none;}
+img{border:0;}
+.section{font-family:"微软雅黑";}
+
+#s1 h1{width:100%;text-align:center;font-weight:normal;font-size:0px;color:#1bbc9b;position:absolute;top:10%;}
+#s1 p.p1{width:100%;height:377px;background:url(images/face.png) no-repeat center center; position:absolute;bottom:29px; z-index:2;opacity:0;}
+#s1 p.p1 a{display:block;height:376px;width:376px;margin:0 auto;border-radius:188px;transition: all 0.5s ease-in;}
+#s1 p.p1 a:hover{box-shadow:1px 2px 40px #aefffe;transition: all 0.5s ease-in;}
+#s1 p.p2{width:100%;height:126px;background:#1bbc9b url(images/face2.jpg) no-repeat top center;position:absolute; bottom:0;z-index:1;opacity:0;}
+
+#s2 h1{width:100%;text-align:center;font-weight:normal;font-size:48px;color:#1bbc9b;position:absolute;top:0;opacity:0;}
+#s2 ul{width:912px;margin:0 auto;margin-top:30px;height:189px;}
+#s2 ul li.li1{width:194px;height:189px;background:url(images/ps.jpg) no-repeat center center;float:left;margin-right:45px;opacity:0;}
+#s2 ul li.li2{width:194px;height:189px;background:url(images/html.jpg) no-repeat center center;float:left;margin-right:45px;opacity:0;}
+#s2 ul li.li3{width:194px;height:189px;background:url(images/css.jpg) no-repeat center center;float:left;margin-right:45px;opacity:0;}
+#s2 ul li.li4{width:194px;height:189px;background:url(images/jsjq.jpg) no-repeat center center;float:left;opacity:0;}
+
+#s3 h1{width:100%;text-align:center;font-weight:normal;font-size:48px;color:#fff;position:absolute;top:15%;opacity:0}
+#s3 div.intro{width:720px;margin:0 auto;margin-top:50px;opacity:0;}
+#s3 div.intro ul li{text-indent:60px;width:300px;height:51px;margin-bottom:20px;}
+#s3 div.intro ul li span{display:block;height:51px;font-size:22px;color:#fff;line-height:60px;}
+#s3 div.intro ul.ul1{float:left;margin-right:120px;}
+#s3 div.intro ul.ul1 li.li1{background:url(images/user.png) no-repeat left center;}
+#s3 div.intro ul.ul1 li.li2{background:url(images/loca.png) no-repeat left center;}
+#s3 div.intro ul.ul1 li.li3{background:url(images/read.png) no-repeat left center;}
+#s3 div.intro ul.ul2{float:left;}
+#s3 div.intro ul.ul2 li.li1{background:url(images/phone.png) no-repeat left center;}
+#s3 div.intro ul.ul2 li.li2{background:url(images/email.png) no-repeat left center;}
+#s3 div.intro ul.ul2 li.li3{background:url(images/his.png) no-repeat left center;}
 </style>
+<script src="js/jquery-2.1.0.min.js"></script>
+<script src="js/jquery-ui-1.10.4.min.js"></script>	
+<script src="js/jquery.fullPage.min.js"></script>
+<script src="js/jquery.transit.min.js"></script>
+<script>
+	$(document).ready(function() {
+		$('#fullpage').fullpage({
+			anchors: ['firstPage', 'secondPage', '3rdPage'],
+			slidesColor: ['#fff', '#fff', '#1bbc9b'],
+			loopBottom:true,
+			//easing: 'easeOutBack',
+			navigation: true,
+			navigationPosition: 'right',
+			afterLoad:function(anchorLink,index){
+				if(index==1){
+					$('#s1 h1').transition({
+						  opacity:1,
+						  fontSize:'54px',
+						},1000,'easeOutExpo');
+					$('#s1 p.p1').transition({
+						  opacity:1,
+						  perspective: '400px',
+						  rotateY: '360deg',
+						  delay: 500
+						},500,'easeOutExpo');
+					$('#s1 p.p2').transition({
+						  opacity:1,
+						  delay: 500
+						},500,'easeOutExpo');		
+					}
+				if(index==2){
+					$('#s2 h1').transition({
+						  opacity:1,
+						  top:'15%'
+						},500,'easeOutExpo');
+					$('#s2 ul li.li1').transition({
+						  scale:0,
+						  delay: 400
+						},200).transition({
+						  opacity:1,
+						  scale:1.2
+						},200).transition({
+						  scale:1
+						},200);
+					$('#s2 ul li.li2').transition({
+						  scale:0,
+						  delay: 600
+						},200).transition({
+						  opacity:1,
+						  scale:1.2
+						},200).transition({
+						  scale:1
+						},200);
+					$('#s2 ul li.li3').transition({
+						  scale:0,
+						  delay: 800
+						},200).transition({
+						  opacity:1,
+						  scale:1.2
+						},200).transition({
+						  scale:1
+						},200);	
+					$('#s2 ul li.li4').transition({
+						  scale:0,
+						  delay: 1000
+						},200).transition({
+						  opacity:1,
+						  scale:1.2
+						},200).transition({
+						  scale:1
+						},200);
+					}
+				if(index==3){
+					$('#s3 h1').css('left','-400px').transition({
+						  opacity:1,
+						  x:'400px',
+						},500,'easeOutExpo');
+					$('#s3 div.intro').transition({
+						  opacity:1,
+						  delay:300
+						},1000);
+					}
+				},
+			onLeave:function(index, direction){
+				if(index==1){
+					$('#s1 h1').transition({
+						  opacity:0,
+						  fontSize:'0px',
+						},1000,'easeOutExpo');
+					$('#s1 p.p1').transition({
+						  opacity:0,
+						  perspective: '400px',
+						  rotateY: '-360deg'
+						},500,'easeOutExpo');	
+					$('#s1 p.p2').transition({
+						  opacity:0
+						},500,'easeOutExpo');	
+					}
+				if(index==2){
+					$('#s2 h1').transition({
+						  opacity:0,
+						  top:'0'
+						},200,'easeOutExpo');
+					$('#s2 ul li.li1').transition({
+						  scale:1.2
+						},200).transition({
+						  scale:1
+						},200).transition({
+						  scale:0,
+						  opacity:0
+						},200);
+					$('#s2 ul li.li2').transition({
+						  scale:1.2
+						},200).transition({
+						  scale:1
+						},200).transition({
+						  scale:0,
+						  opacity:0
+						},200);
+					$('#s2 ul li.li3').transition({
+						  scale:1.2
+						},200).transition({
+						  scale:1
+						},200).transition({
+						  scale:0,
+						  opacity:0
+						},200);
+					$('#s2 ul li.li4').transition({
+						  scale:1.2
+						},200).transition({
+						  scale:1
+						},200).transition({
+						  scale:0,
+						  opacity:0
+						},200);
+					}
+				if(index==3){
+					$('#s3 h1').transition({
+						  opacity:0,
+						  x:'0px',
+						},500,'easeOutExpo');
+					$('#s3 div.intro').transition({
+						  opacity:0
+						},400);
+					}
+				},
+			afterRender:function(){
+					$('#s1 h1').transition({
+						  opacity:1,
+						  fontSize:'54px',
+						},1000,'easeOutExpo');
+					$('#s1 p.p1').transition({
+						  opacity:1,
+						  perspective: '400px',
+						  rotateY: '360deg',
+						  delay: 500
+						},500,'easeOutExpo');
+					$('#s1 p.p2').transition({
+						  opacity:1,
+						  delay: 500
+						},500,'easeOutExpo');	
+				}	
+		});
+	});
+</script>
 </head>
 
 <body>
-<div id="leftside">
-	<a href="../index.html" id="logo" ><img src="../img/logo.png"/></a>
-	<ul id="nav">
-    	<li><a class="a1 active" href="about.html">ABOUT</a></li>
-        <li><a class="a2" href="capabilites.html">CAPABILITES</a></li>
-        <li><a class="a3" href="works.html">THE WORKS</a></li>
-        <li><a class="a4" href="club.html">CLUB</a></li>
-        <li><a class="a6" href="contact.html">CONTACT</a></li>
-    </ul>
-    <span class="ewm"></span>
-    <p class="wc">微信公众号</p>
-    <p class="cr">All Rights Reserved | © 2015</p>
+<div id="fullpage">
+    <div class="section" id="s1">
+    	<h1>WEB前端攻城狮</h1>
+        <p class="p1"><a href="html/resume.html"></a></p>
+        <p class="p2"></p>
+    </div>
+    <div class="section" id="s2">
+    	<h1>主要技能</h1>
+        <ul>
+        	<li class="li1"></li>
+            <li class="li2"></li>
+            <li class="li3"></li>
+            <li class="li4"></li>
+        </ul>
+    </div>
+    <div class="section" id="s3">
+    	<h1>关于我</h1>
+        <div class="intro">
+        	<ul class="ul1">
+            	<li class="li1"><span>马荣鑫(1993-04)</span></li>
+                <li class="li2"><span>深圳经济特区</span></li>
+                <li class="li3"><span>深圳信息职业技术学院</span></li>
+            </ul>
+            <ul class="ul2">
+            	<li class="li1"><span>13510519736</span></li>
+                <li class="li2"><span>644289701@qq.com</span></li>
+                <li class="li3"><span>暂无工作经历</span></li>
+            </ul>
+        </div>
+    </div>
 </div>
-<div id="topbg" data-stellar-background-ratio="0.5"></div>
-<div id="rightside">
-<div id="intro">
-	<h1>关于<span>我们</span></h1>
-    <p class="p1"><span>InterSoph Consulting & Marketing</span>清韵合创营销策划是专注于服务高端圈层的整合营销策略公司。</p>
-	<p  class="p2"> 一群经验丰富的广告公关人，一家充满朝气的广告公司，我们的成员有来自十年以上国际品牌
-赛事运营者，以敏锐洞察力来开创无界创意思维，策动强效公关事件；也有十年以上高端渠道媒体运营者，以灵活驭变的资源整合能力来丰富立体的媒体传播渠道，亦有国际4A广告公司的资深品牌策划团队，多年以来积累了丰富的品牌构建及营销推广经验；也有长期奋战在品牌一线的视觉指导与设计人才，以出众的视觉创意展现传播理念；更有过百场经验的活动执行团队，深知完美策划，决胜于执行；我们是创新的团队，也是富有经验的团队。</p>
-	<p  class="p3">公司旗下运营三大高端平台：太美会华南分会、松坪山壹号和银联大数据</p>
-    <p  class="p4"><span>太美会</span>是由十九位（马云、冯仑、沈南鹏、沈国军、曾李青、梁冬等）深具影响力的太美合伙人联合发起创立，借太美集团启航，是为中国财智家庭提供顶级品致生活服务的机构。太美会以举办面向财富家庭的高端活动为切入口，通过连续举办“太美品致之夜”（2011 年-2014 年）、“太美家年华”（2015年）、“太美女人汇年会”等有影响力、有传播力的大型活动，迅速在国内形成了品牌影响力和口碑。太美会紧紧围绕财富家庭的社会需求、家族需求和人力需求，提供了一系列具有竞争力的专业品致生活服务，倡导温暖家庭的生活理念，为财富家庭构筑温暖生活圈。</p>
-	<p  class="p5"><span>松坪山壹号</span>致力于打造成为创新科技互联平台，会所初创于2014年3月，坐落在深圳南山高新科技园北区源兴科技大厦，位于城市科技发展的核心位置。短短一年间在科创圈、投资圈、金融圈、互联网行业以及众多行业领袖企业家中享有盛誉，并与众多高端协会、俱乐部达成长期的战略合作关系。</p>
-	<p class="p6"><span>银联大数据</span>依托于银联强大资源及世界最先进的数据挖掘核心技术，致力于实现通过线上线下
-（O2O）交易闭环，通过持卡人消费数据的挖掘分析，实现精准实时生活服务类资讯个性化订制推送，从而为商家打造移动客端时代的精准营销平台，为千万不同行业客户开拓数亿张银行卡的消费用户市场。我们通过独特的唯一的数据视角，为客户提供多元化营销推广服务，力争为客户创造最大化价值。</p>
-</div>
-</body>
-</html>
-
-<script src="../js/jquery-2.1.4.min.js"></script>
-<script src="../js/jquery.stellar.min.js"></script>
-<script>
-	/*视觉滚差*/
-	$.stellar();
-
-	/*center*/
-	var a=300/$(window).width();
-	var b=100-(a.toFixed(2)*100)+'%';
-	$('#rightside').animate({width:b,opacity:1},"slow");
-
-	$(window).resize(function() {
-		var a=300/$(window).width();
-		var b=100-(a.toFixed(2)*100)+'%';
-		$('#rightside').css('width',b);
-	  
-	});
-	
-	/*nav*/
-	var c=['我们是谁','我们的服务','我们的案例','我们的俱乐部','我们在这里'];
-	var d=['ABOUT','CAPABILITES','THE WORKS','CLUB','CONTACT'];
-	
-	$('#nav a').hover(function(event){
-		event.preventDefault();
-		
-		var e=$(this).parent().index() ;
-		$(this).text(c[e])
-		},function(event){
-			event.preventDefault();
-			
-			var f=$(this).parent().index() ;
-			$(this).text(d[f])		
-			});
-			
-	/*QR code*/		
-	$('#leftside p.wc').hover(function(){
-		$('#leftside span.ewm').animate({opacity:1});
-		},function(){
-			$('#leftside span.ewm').stop(true).animate({opacity:0});
-			});
-			
-</script>
 </body>
 </html>
